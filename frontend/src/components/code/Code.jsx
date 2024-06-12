@@ -20,13 +20,13 @@ const Code = () => {
 
   //* Css onchange handler 
   const onChangeCss = useCallback((value) => {
-    console.log(value);
+    // console.log(value);
     setCss_Edit(value)
   }, []);
 
   //* JavaScript onchange handler 
   const onChangeJavaScript = useCallback((value) => {
-    console.log(value);
+    // console.log(value);
     setJs_Edit(value)
   }, []);
 
