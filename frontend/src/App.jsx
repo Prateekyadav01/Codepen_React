@@ -1,17 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import Layout from './components/Layout'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import Code from './components/code/Code'
+// import Root, { rootLoader } from "./routes/root";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      // loader: rootLoader,
+    },
+    {
+      path: "/code",
+      element: <Code/>,
+    }
+  ]);
 
   return (
     <>
      {/* <Code/> */}
-     <Layout/>
+     {/* <Layout/> */}
+     <RouterProvider router={router} />
     </>
   )
 }

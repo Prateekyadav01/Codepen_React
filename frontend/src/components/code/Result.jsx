@@ -1,6 +1,10 @@
 import React from 'react'
 
 function Result({srcCode}) {
+    // console.log(srcCode)
+    const handleSaveResult = () => {
+        console.log(srcCode)
+    }
     return (
         <div>
             <div className="bg-[#282c34] p-4 shadow mt-4 rounded-lg">
@@ -18,6 +22,9 @@ function Result({srcCode}) {
                 >
                 </iframe>
             </div>
+            <button onClick={handleSaveResult}>
+                Save
+            </button>
         </div>
     )
 }

@@ -14,7 +14,7 @@ const Code = () => {
 
   //* Html onchange handler
   const onChangeHtml = useCallback((value) => {
-    console.log(value);
+    // console.log(value);
     setHtml_Edit(value);
   }, [])
 

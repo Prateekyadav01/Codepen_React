@@ -1,7 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // assuming you're using react-router for navigation
+import React, { useState } from 'react';
+// import { Link } from 'react-router-dom'; // assuming you're using react-router for navigation
 
 const Right = () => {
+  const [check ,setCheck] =useState(false)
+  const handleCheck =()=>{
+    setCheck(!check)
+  }
   return (
     <div className='w-[80%] bg-black p-6'>
       <div className="flex justify-center items-center relative mb-8">
@@ -22,12 +26,20 @@ const Right = () => {
         <div className='mb-4'>
           <input type="password" className='w-full py-3 px-4 bg-gray-700 text-white border-none rounded-md focus:outline-none' placeholder="Password" />
         </div>
-        <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
+       {
+        check?( <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
           Signup
-        </button>
-        <div className='text-center text-white mb-6'>
-          <h3 className='mb-2'>Already have an account?</h3>
-          {/* <Link to="/login" className='text-blue-400 hover:underline'>Login here</Link> */}
+        </button>) :( <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
+          Login
+        </button>)
+       }
+        <div className='text-center flex gap-2 items-center justify-center text-white mb-6'>
+          <h3 className=''>Already have an account?</h3>
+         {
+          check?(
+            <a className='cursor-pointer' onClick={handleCheck}>Login</a>
+          ):( <a  className='cursor-pointer' onClick={handleCheck} >Signup</a>)
+         }
         </div>
         <h3 className='text-center text-white mb-6'>or</h3>
         <div className='flex justify-center gap-4'>

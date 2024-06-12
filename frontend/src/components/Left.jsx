@@ -1,10 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Left = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate=()=>{
+    navigate('/code')
+  }
   return (
     <div className='flex flex-col w-[20%] border-r-2 h-screen  items-center bg-black py-6'>
       <h1 className="text-2xl font-semibold text-white cursor-pointer mb-6">CodePen</h1>
-      <div className="text-white text-lg border border-gray-700 w-[80%] py-2 flex items-center justify-center rounded-md cursor-pointer mb-6 transition duration-300 hover:bg-gray-700">
+      <div onClick={handleNavigate} className="text-white text-lg border border-gray-700 w-[80%] py-2 flex items-center justify-center rounded-md cursor-pointer mb-6 transition duration-300 hover:bg-gray-700">
         Start Coding
       </div>
 
