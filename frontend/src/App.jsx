@@ -10,7 +10,8 @@ function App() {
 
   return (
     <>
-     <Code/>
+     {/* <Code/> */}
+     <Layout/>
     </>
   )
 }
