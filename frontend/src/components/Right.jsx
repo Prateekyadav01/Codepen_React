@@ -26,6 +26,7 @@ const Right = () => {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    console.log("email");
   };
 
   const handlePasswordChange = (e) => {
