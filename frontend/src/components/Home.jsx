@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteResult } from './redux/resultSlice';
+import Left from './Left';
 // import { deleteResult } from '../redux/resultSlice';
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
     }
     
     return (
-        <div className="p-4">
+       <div className='flex'>
+        <Left/>
+         <div className="p-4">
             <h2 className="text-2xl font-bold mb-4 text-white">Stored Results</h2>
             {results.length === 0 ? (
                 <p className="text-gray-400">No results stored yet.</p>
@@ -41,6 +44,7 @@ const Home = () => {
                 </div>
             )}
         </div>
+       </div>
     );
 }
 
