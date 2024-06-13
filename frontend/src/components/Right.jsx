@@ -26,7 +26,6 @@ const Right = () => {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    console.log("email");
   };
 
   const handlePasswordChange = (e) => {
@@ -83,57 +82,63 @@ const Right = () => {
         }
       </div>
 
-      <h3 className='text-white text-xl mb-6 flex items-center justify-center'>Join with us</h3>
-      <div className='bg-gray-900 p-6 rounded-md w-[50%] flex flex-col mx-auto'>
-        <div className='mb-4'>
-          <input 
-            type="email" 
-            value={email} 
-            onChange={handleEmailChange} 
-            className='w-full py-3 px-4 bg-gray-700 text-white border-none rounded-md focus:outline-none' 
-            placeholder="Email" 
-          />
-        </div>
-        <div className='mb-4'>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={handlePasswordChange} 
-            className='w-full py-3 px-4 bg-gray-700 text-white border-none rounded-md focus:outline-none' 
-            placeholder="Password" 
-          />
-        </div>
-        {
-          check ? (
-            <button onClick={handleAuth} className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
-              Signup
-            </button>
-          ) : (
-            <button onClick={handleAuth} className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
-              Login
-            </button>
-          )
-        }
-        <div className='text-center flex gap-2 items-center justify-center text-white mb-6'>
-          <h3>Already have an account?</h3>
-          {
-            check ? (
-              <a className='cursor-pointer' onClick={handleCheck}>Login</a>
-            ) : (
-              <a className='cursor-pointer' onClick={handleCheck}>Signup</a>
-            )
-          }
-        </div>
-        <h3 className='text-center text-white mb-6'>or</h3>
-        <div className='flex justify-center gap-4'>
-          <button onClick={signUpWithGoogle} className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition duration-300">
-            Google
-          </button>
-          <button className="bg-gray-800 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition duration-300">
-            GitHub
-          </button>
-        </div>
-      </div>
+      {
+        !authState.isAuthenticated && (
+          <>
+            <h3 className='text-white text-xl mb-6 flex items-center justify-center'>Join with us</h3>
+            <div className='bg-gray-900 p-6 rounded-md w-[50%] flex flex-col mx-auto'>
+              <div className='mb-4'>
+                <input 
+                  type="email" 
+                  value={email} 
+                  onChange={handleEmailChange} 
+                  className='w-full py-3 px-4 bg-gray-700 text-white border-none rounded-md focus:outline-none' 
+                  placeholder="Email" 
+                />
+              </div>
+              <div className='mb-4'>
+                <input 
+                  type="password" 
+                  value={password} 
+                  onChange={handlePasswordChange} 
+                  className='w-full py-3 px-4 bg-gray-700 text-white border-none rounded-md focus:outline-none' 
+                  placeholder="Password" 
+                />
+              </div>
+              {
+                check ? (
+                  <button onClick={handleAuth} className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
+                    Signup
+                  </button>
+                ) : (
+                  <button onClick={handleAuth} className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md mb-6 transition duration-300">
+                    Login
+                  </button>
+                )
+              }
+              <div className='text-center flex gap-2 items-center justify-center text-white mb-6'>
+                <h3>Already have an account?</h3>
+                {
+                  check ? (
+                    <a className='cursor-pointer' onClick={handleCheck}>Login</a>
+                  ) : (
+                    <a className='cursor-pointer' onClick={handleCheck}>Signup</a>
+                  )
+                }
+              </div>
+              <h3 className='text-center text-white mb-6'>or</h3>
+              <div className='flex justify-center gap-4'>
+                <button onClick={signUpWithGoogle} className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition duration-300">
+                  Google
+                </button>
+                <button className="bg-gray-800 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition duration-300">
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </>
+        )
+      }
     </div>
   );
 };
