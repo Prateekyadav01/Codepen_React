@@ -7,6 +7,9 @@ const Left = () => {
   const handleNavigate=()=>{
     navigate('/code')
   }
+  const handleShowResult=()=>{
+    navigate('/home')
+  }
   return (
     <div className='flex flex-col w-[20%] border-r-2 h-screen  items-center bg-black py-6'>
       <h1 className="text-2xl font-semibold text-white cursor-pointer mb-6">CodePen</h1>
@@ -18,7 +21,7 @@ const Left = () => {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 3m0 0l3-3m-3 3v8a2 2 0 002 2h10a2 2 0 002-2V9l-3 3m0 0l-3-3m3 3l3 3" />
         </svg>
-        <span className="text-lg text-white">Home</span>
+        <span onClick={handleShowResult} className="text-lg text-white">Home</span>
       </div>
     </div>
   );
