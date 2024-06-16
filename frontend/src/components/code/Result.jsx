@@ -1,13 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { saveResult } from '../redux/resultSlice';
+import {useNavigate} from 'react-router-dom'
 
 function Result({ srcCode }) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSaveResult = () => {
         console.log(srcCode);
         dispatch(saveResult(srcCode));
+        navigate('/home')
     };
 
     return (
